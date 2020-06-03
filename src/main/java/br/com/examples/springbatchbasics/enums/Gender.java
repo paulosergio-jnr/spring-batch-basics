@@ -9,7 +9,7 @@ public enum Gender {
 
     private String value;
 
-    Gender(String gender) {
+    Gender(final String gender) {
         this.value = gender;
     }
 
@@ -17,7 +17,7 @@ public enum Gender {
         return value;
     }
 
-    public static Gender entryOf(String gender) {
+    public static Gender entryOf(final String gender) {
         for (Gender g : Gender.values()) {
             if (g.getValue().equals(gender)) {
                 return g;

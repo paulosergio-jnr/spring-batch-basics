@@ -30,7 +30,7 @@ public class CustomerItemReader extends FlatFileItemReader<CustomerInput> {
     @Autowired
     ApplicationProperties properties;
 
-    public CustomerItemReader(ApplicationProperties properties) {
+    public CustomerItemReader(final ApplicationProperties properties) {
         super();
 
         final DefaultLineMapper<CustomerInput> lineMapper = new DefaultLineMapper<>();
@@ -42,7 +42,7 @@ public class CustomerItemReader extends FlatFileItemReader<CustomerInput> {
         lineMapper.setLineTokenizer(tokenizer);
         lineMapper.setFieldSetMapper(new FieldSetMapper<CustomerInput>() {
             @Override
-            public CustomerInput mapFieldSet(FieldSet fieldSet) throws BindException {
+            public CustomerInput mapFieldSet(final FieldSet fieldSet) throws BindException {
                 CustomerInput input = new CustomerInput();
 
                 input.setId(fieldSet.readString(ID_HEADER));

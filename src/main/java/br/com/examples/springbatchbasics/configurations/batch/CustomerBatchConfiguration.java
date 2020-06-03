@@ -1,5 +1,6 @@
-package br.com.examples.springbatchbasics.configurations;
+package br.com.examples.springbatchbasics.configurations.batch;
 
+import br.com.examples.springbatchbasics.configurations.ApplicationProperties;
 import br.com.examples.springbatchbasics.domains.Customer;
 import br.com.examples.springbatchbasics.models.CustomerInput;
 import br.com.examples.springbatchbasics.processors.CustomerItemProcessor;

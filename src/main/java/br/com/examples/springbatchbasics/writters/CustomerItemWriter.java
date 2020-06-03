@@ -30,7 +30,7 @@ public class CustomerItemWriter extends FlatFileItemWriter<Customer> {
     @Autowired
     ApplicationProperties properties;
 
-    public CustomerItemWriter(ApplicationProperties properties) {
+    public CustomerItemWriter(final ApplicationProperties properties) {
         super();
 
         final DelimitedLineAggregator<Customer> lineAggregator = new DelimitedLineAggregator<Customer>();
@@ -42,7 +42,7 @@ public class CustomerItemWriter extends FlatFileItemWriter<Customer> {
         // optional part: header formation code
         this.setHeaderCallback(new FlatFileHeaderCallback() {
             @Override
-            public void writeHeader(Writer writer) throws IOException {
+            public void writeHeader(final Writer writer) throws IOException {
                 // append all header descriptions
                 final String header = new StringBuilder()
                         .append(ID_HEADER)
@@ -67,7 +67,7 @@ public class CustomerItemWriter extends FlatFileItemWriter<Customer> {
     }
 
     @Override
-    public String doWrite(List<? extends Customer> items) {
+    public String doWrite(final List<? extends Customer> items) {
         final StringBuilder linesToWrite = new StringBuilder();
 
         items.forEach(customer -> {

@@ -15,10 +15,11 @@ import java.util.UUID;
 public class CustomerItemProcessor implements ItemProcessor<CustomerInput, Customer> {
 
     private static final String UNITED_STATES_COUNTRY = "United States";
+    private static final String DATE_PATTERN = "yyyy-MM-dd";
 
     @Override
-    public Customer process(CustomerInput customerInput) throws Exception {
-        final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+    public Customer process(final CustomerInput customerInput) throws Exception {
+        final DateTimeFormatter formatter = DateTimeFormatter.ofPattern(DATE_PATTERN);
 
         final Customer customer = new Customer();
         final Address address = new Address();
