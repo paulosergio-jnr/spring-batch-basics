@@ -35,6 +35,7 @@ public class CustomerItemProcessor implements ItemProcessor<CustomerInput, Custo
 
         customer.setAddress(address);
 
+        // filtering american customers. Any foreign customer will be discarded
         if (UNITED_STATES_COUNTRY.equals(customer.getAddress().getCountry())) {
             return customer;
         } else {
