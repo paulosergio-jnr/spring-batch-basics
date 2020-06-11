@@ -7,8 +7,8 @@ import lombok.Setter;
 @Setter
 public class Address {
 
-    private String street;
+  private String street;
 
-    private String country;
+  private String country;
 
 }

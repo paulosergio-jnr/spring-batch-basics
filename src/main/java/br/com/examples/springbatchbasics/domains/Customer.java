@@ -11,18 +11,18 @@ import java.util.UUID;
 @Setter
 public class Customer {
 
-    private UUID id;
+  private UUID id;
 
-    private String firstName;
+  private String firstName;
 
-    private String lastName;
+  private String lastName;
 
-    private Gender gender;
+  private Gender gender;
 
-    private LocalDate birthday;
+  private LocalDate birthday;
 
-    private Address address;
+  private Address address;
 
-    private boolean foreign;
+  private boolean foreign;
 
 }

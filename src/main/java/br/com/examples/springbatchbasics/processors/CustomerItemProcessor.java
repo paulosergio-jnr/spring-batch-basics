@@ -14,33 +14,33 @@ import java.util.UUID;
 @Service
 public class CustomerItemProcessor implements ItemProcessor<CustomerInput, Customer> {
 
-    private static final String UNITED_STATES_COUNTRY = "United States";
-    private static final String DATE_PATTERN = "yyyy-MM-dd";
+  private static final String UNITED_STATES_COUNTRY = "United States";
+  private static final String DATE_PATTERN = "yyyy-MM-dd";
 
-    @Override
-    public Customer process(final CustomerInput customerInput) throws Exception {
-        final DateTimeFormatter formatter = DateTimeFormatter.ofPattern(DATE_PATTERN);
+  @Override
+  public Customer process(final CustomerInput customerInput) throws Exception {
+    final DateTimeFormatter formatter = DateTimeFormatter.ofPattern(DATE_PATTERN);
 
-        final Customer customer = new Customer();
-        final Address address = new Address();
+    final Customer customer = new Customer();
+    final Address address = new Address();
 
-        customer.setId(UUID.fromString(customerInput.getId()));
-        customer.setFirstName(customerInput.getFirstName());
-        customer.setLastName(customerInput.getLastName());
-        customer.setGender(Gender.entryOf(customerInput.getGender()));
-        customer.setBirthday(LocalDate.parse(customerInput.getBirthday(), formatter));
+    customer.setId(UUID.fromString(customerInput.getId()));
+    customer.setFirstName(customerInput.getFirstName());
+    customer.setLastName(customerInput.getLastName());
+    customer.setGender(Gender.entryOf(customerInput.getGender()));
+    customer.setBirthday(LocalDate.parse(customerInput.getBirthday(), formatter));
 
-        address.setStreet(customerInput.getAddress());
-        address.setCountry(customerInput.getCountry());
+    address.setStreet(customerInput.getAddress());
+    address.setCountry(customerInput.getCountry());
 
-        customer.setAddress(address);
+    customer.setAddress(address);
 
-        // filtering american customers. Any foreign customer will be discarded
-        if (UNITED_STATES_COUNTRY.equals(customer.getAddress().getCountry())) {
-            return customer;
-        } else {
-            return null;
-        }
+    // filtering american customers. Any foreign customer will be discarded
+    if (UNITED_STATES_COUNTRY.equals(customer.getAddress().getCountry())) {
+      return customer;
+    } else {
+      return null;
     }
+  }
 
 }

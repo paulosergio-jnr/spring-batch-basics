@@ -20,43 +20,43 @@ import org.springframework.context.annotation.Configuration;
 @EnableBatchProcessing
 public class CustomerBatchConfiguration {
 
-    @Autowired
-    private JobBuilderFactory jobBuilderFactory;
+  @Autowired
+  private JobBuilderFactory jobBuilderFactory;
 
-    @Autowired
-    private StepBuilderFactory stepBuilderFactory;
+  @Autowired
+  private StepBuilderFactory stepBuilderFactory;
 
-    @Autowired
-    JobLauncher jobLauncher;
+  @Autowired
+  JobLauncher jobLauncher;
 
-    @Autowired
-    ApplicationProperties applicationProperties;
+  @Autowired
+  ApplicationProperties applicationProperties;
 
-    @Autowired
-    CustomerItemReader customerItemReader;
+  @Autowired
+  CustomerItemReader customerItemReader;
 
-    @Autowired
-    CustomerItemProcessor customerItemProcessor;
+  @Autowired
+  CustomerItemProcessor customerItemProcessor;
 
-    @Autowired
-    CustomerItemWriter customerItemWriter;
+  @Autowired
+  CustomerItemWriter customerItemWriter;
 
-    @Bean
-    public Step importCustomersStep() {
-        return stepBuilderFactory.get("STEP-CUSTOMERS-01")
-                .<CustomerInput, Customer> chunk(10)
-                .reader(customerItemReader)
-                .processor(customerItemProcessor)
-                .writer(customerItemWriter)
-                .build();
-    }
+  @Bean
+  public Step importCustomersStep() {
+    return stepBuilderFactory.get("STEP-CUSTOMERS-01")
+        .<CustomerInput, Customer>chunk(10)
+        .reader(customerItemReader)
+        .processor(customerItemProcessor)
+        .writer(customerItemWriter)
+        .build();
+  }
 
-    @Bean
-    public Job importCustomersJob() {
-        return jobBuilderFactory.get("JOB-IMPORT-CUSTOMER")
-                .flow(importCustomersStep())
-                .end()
-                .build();
-    }
+  @Bean
+  public Job importCustomersJob() {
+    return jobBuilderFactory.get("JOB-IMPORT-CUSTOMER")
+        .flow(importCustomersStep())
+        .end()
+        .build();
+  }
 
 }

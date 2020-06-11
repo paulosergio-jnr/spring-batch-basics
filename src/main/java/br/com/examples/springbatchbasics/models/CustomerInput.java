@@ -7,18 +7,18 @@ import lombok.Setter;
 @Setter
 public class CustomerInput {
 
-    private String id;
+  private String id;
 
-    private String firstName;
+  private String firstName;
 
-    private String lastName;
+  private String lastName;
 
-    private String gender;
+  private String gender;
 
-    private String birthday;
+  private String birthday;
 
-    private String address;
+  private String address;
 
-    private String country;
+  private String country;
 
 }

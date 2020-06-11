@@ -10,13 +10,10 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class ApplicationProperties {
 
-    @Value("${batch.input.file-name}")
-    private String inputFile;
+  @Value("${batch.input.file-name}")
+  private String inputFile;
 
-    @Value("${batch.output.americans.file-name}")
-    private String americansFile;
-
-    @Value("${batch.output.foreign.file-name}")
-    private String foreignsFile;
+  @Value("${batch.output.americans.file-name}")
+  private String americansFile;
 
 }
