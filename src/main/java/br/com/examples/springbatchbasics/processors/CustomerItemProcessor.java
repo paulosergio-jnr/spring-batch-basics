@@ -19,8 +19,12 @@ public class CustomerItemProcessor implements ItemProcessor<CustomerInput, Custo
 
   @Override
   public Customer process(final CustomerInput customerInput) throws Exception {
-    final DateTimeFormatter formatter = DateTimeFormatter.ofPattern(DATE_PATTERN);
+    // filtering american customers. Any foreign customer will be discarded
+    if (! UNITED_STATES_COUNTRY.equals(customerInput.getCountry())) {
+      return null;
+    }
 
+    final DateTimeFormatter formatter = DateTimeFormatter.ofPattern(DATE_PATTERN);
     final Customer customer = new Customer();
     final Address address = new Address();
 
@@ -35,12 +39,7 @@ public class CustomerItemProcessor implements ItemProcessor<CustomerInput, Custo
 
     customer.setAddress(address);
 
-    // filtering american customers. Any foreign customer will be discarded
-    if (UNITED_STATES_COUNTRY.equals(customer.getAddress().getCountry())) {
-      return customer;
-    } else {
-      return null;
-    }
+    return customer;
   }
 
 }

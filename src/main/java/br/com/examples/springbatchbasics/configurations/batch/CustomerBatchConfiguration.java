@@ -27,19 +27,19 @@ public class CustomerBatchConfiguration {
   private StepBuilderFactory stepBuilderFactory;
 
   @Autowired
-  JobLauncher jobLauncher;
+  private JobLauncher jobLauncher;
 
   @Autowired
-  ApplicationProperties applicationProperties;
+  private ApplicationProperties applicationProperties;
 
   @Autowired
-  CustomerItemReader customerItemReader;
+  private CustomerItemReader customerItemReader;
 
   @Autowired
-  CustomerItemProcessor customerItemProcessor;
+  private CustomerItemProcessor customerItemProcessor;
 
   @Autowired
-  CustomerItemWriter customerItemWriter;
+  private CustomerItemWriter customerItemWriter;
 
   @Bean
   public Step importCustomersStep() {
