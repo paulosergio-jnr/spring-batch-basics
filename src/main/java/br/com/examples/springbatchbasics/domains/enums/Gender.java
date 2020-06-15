@@ -1,4 +1,4 @@
-package br.com.examples.springbatchbasics.enums;
+package br.com.examples.springbatchbasics.domains.enums;
 
 public enum Gender {
 

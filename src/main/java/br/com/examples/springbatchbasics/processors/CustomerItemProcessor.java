@@ -2,7 +2,7 @@ package br.com.examples.springbatchbasics.processors;
 
 import br.com.examples.springbatchbasics.domains.Address;
 import br.com.examples.springbatchbasics.domains.Customer;
-import br.com.examples.springbatchbasics.enums.Gender;
+import br.com.examples.springbatchbasics.domains.enums.Gender;
 import br.com.examples.springbatchbasics.models.CustomerInput;
 import org.springframework.batch.item.ItemProcessor;
 import org.springframework.stereotype.Service;

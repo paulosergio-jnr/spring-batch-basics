@@ -1,6 +1,6 @@
 package br.com.examples.springbatchbasics.domains;
 
-import br.com.examples.springbatchbasics.enums.Gender;
+import br.com.examples.springbatchbasics.domains.enums.Gender;
 import lombok.Getter;
 import lombok.Setter;
 
