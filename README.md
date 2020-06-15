@@ -488,14 +488,14 @@ Running it successfully will display a message like:
 
 Notice that the application output will display important information about our Job:
 
-* Job starting time and parameters;
-* Step starting time;
-* Step return status and duration;
-* Job return status and duration.
+* _Job_ starting time and parameters;
+* _Step_ starting time;
+* _Step_ return status and duration;
+* _Job_ return status and duration.
 
 These information are essential for applications, specially when we have to do any kind of troubleshooting.
 
-After this execution, checkout the output file set by `batch.output.americans.file-name parameter` in `application.properties` file. If the process was successful, 
+After this execution, checkout the output file set by `batch.output.americans.file-name` parameter in `application.properties` file. If the process was successful, 
 this file will contain just the american customers in the resultant .csv file and with the headers that we previously set.
 
 In order to monitor all steps while being executed, you can implement loggers in every phase of the process: readers, processors and writers.
